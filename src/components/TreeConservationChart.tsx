@@ -334,7 +334,7 @@ const TreeConservationChart = (props: any) => {
           <div className="totalTreesLabel">TOTAL TREES</div>
           <br />
           <br />
-          <b className="totalTreesNumber">{thousands_separators(treesNumber[0])} </b>
+          <b className="totalTreesNumber">{thousands_separators(treesNumber[2])} </b>
         </div>
         <img
           src="https://EijiGorilla.github.io/Symbols/Tree_Logo.svg"
