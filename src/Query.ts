@@ -94,56 +94,15 @@ export const statusTreeCompensationChartQuery = [
 // For Tree Conservation Chart
 const treeConserveStatus = ['Ex', 'Ew', 'CR', 'E', 'VU', 'NT', 'LC', 'DD', 'NE', 'OTS', 'NL', 'EN'];
 
-export const statusTreeConservationChartQuery = [
-  {
-    category: treeConserveStatus[0],
-    value: 1,
+export const statusTreeConservationChartQuery = treeConserveStatus.map(
+  (status: any, index: any) => {
+    return Object.assign({
+      category: status,
+      value: index + 1,
+    });
   },
-  {
-    category: treeConserveStatus[1],
-    value: 2,
-  },
-  {
-    category: treeConserveStatus[2],
-    value: 3,
-  },
-  {
-    category: treeConserveStatus[3],
-    value: 4,
-  },
-  {
-    category: treeConserveStatus[4],
-    value: 5,
-  },
-  {
-    category: treeConserveStatus[5],
-    value: 6,
-  },
-  {
-    category: treeConserveStatus[6],
-    value: 7,
-  },
-  {
-    category: treeConserveStatus[7],
-    value: 8,
-  },
-  {
-    category: treeConserveStatus[8],
-    value: 9,
-  },
-  {
-    category: treeConserveStatus[9],
-    value: 10,
-  },
-  {
-    category: treeConserveStatus[10],
-    value: 11,
-  },
-  {
-    category: treeConserveStatus[11],
-    value: 12,
-  },
-];
+);
+
 //
 
 export async function generateTreeCuttingData() {
@@ -482,7 +441,7 @@ export async function generateTreesNumber() {
 
   var total_conservation_tree = new StatisticDefinition({
     onStatisticField: 'CASE WHEN Conservation >= 1 THEN 1 ELSE 0 END',
-    outStatisticFieldName: 'total_compensation_tree',
+    outStatisticFieldName: 'total_conservation_tree',
     statisticType: 'sum',
   });
 

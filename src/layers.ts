@@ -340,154 +340,24 @@ export const colorsConservation = [
   '#44555a',
 ];
 
+const treeConservationUniqueValuesInfos = colorsConservation.map((color: any, index: any) => {
+  return Object.assign({
+    value: index + 1,
+    symbol: new SimpleMarkerSymbol({
+      style: 'triangle',
+      size: 5,
+      color: color, // the first two letters dictate transparency.
+      outline: {
+        width: 0.5,
+        color: outlineColor,
+      },
+    }),
+  });
+});
+
 let treeConservationRenderer = new UniqueValueRenderer({
   field: 'Conservation',
-  uniqueValueInfos: [
-    {
-      value: 1,
-      symbol: new SimpleMarkerSymbol({
-        style: 'triangle',
-        size: 5,
-        color: colorsConservation[0], // the first two letters dictate transparency.
-        outline: {
-          width: 0.5,
-          color: outlineColor,
-        },
-      }),
-    },
-    {
-      value: 2,
-      symbol: new SimpleMarkerSymbol({
-        style: 'triangle',
-        size: 5,
-        color: colorsConservation[1], // the first two letters dictate transparency.
-        outline: {
-          width: 0.5,
-          color: outlineColor,
-        },
-      }),
-    },
-    {
-      value: 3,
-      symbol: new SimpleMarkerSymbol({
-        style: 'triangle',
-        size: 5,
-        color: colorsConservation[2], // the first two letters dictate transparency.
-        outline: {
-          width: 0.5,
-          color: outlineColor,
-        },
-      }),
-    },
-    {
-      value: 4,
-      symbol: new SimpleMarkerSymbol({
-        style: 'triangle',
-        size: 5,
-        color: colorsConservation[3], // the first two letters dictate transparency.
-        outline: {
-          width: 0.5,
-          color: outlineColor,
-        },
-      }),
-    },
-    {
-      value: 5,
-      symbol: new SimpleMarkerSymbol({
-        style: 'triangle',
-        size: 5,
-        color: colorsConservation[4], // the first two letters dictate transparency.
-        outline: {
-          width: 0.5,
-          color: outlineColor,
-        },
-      }),
-    },
-    {
-      value: 6,
-      symbol: new SimpleMarkerSymbol({
-        style: 'triangle',
-        size: 5,
-        color: colorsConservation[5], // the first two letters dictate transparency.
-        outline: {
-          width: 0.5,
-          color: outlineColor,
-        },
-      }),
-    },
-    {
-      value: 7,
-      symbol: new SimpleMarkerSymbol({
-        style: 'triangle',
-        size: 5,
-        color: colorsConservation[6], // the first two letters dictate transparency.
-        outline: {
-          width: 0.5,
-          color: outlineColor,
-        },
-      }),
-    },
-    {
-      value: 8,
-      symbol: new SimpleMarkerSymbol({
-        style: 'triangle',
-        size: 5,
-        color: colorsConservation[7], // the first two letters dictate transparency.
-        outline: {
-          width: 0.5,
-          color: outlineColor,
-        },
-      }),
-    },
-    {
-      value: 9,
-      symbol: new SimpleMarkerSymbol({
-        style: 'triangle',
-        size: 5,
-        color: colorsConservation[8], // the first two letters dictate transparency.
-        outline: {
-          width: 0.5,
-          color: outlineColor,
-        },
-      }),
-    },
-    {
-      value: 10,
-      symbol: new SimpleMarkerSymbol({
-        style: 'triangle',
-        size: 5,
-        color: colorsConservation[9], // the first two letters dictate transparency.
-        outline: {
-          width: 0.5,
-          color: outlineColor,
-        },
-      }),
-    },
-    {
-      value: 11,
-      symbol: new SimpleMarkerSymbol({
-        style: 'triangle',
-        size: 5,
-        color: colorsConservation[10], // the first two letters dictate transparency.
-        outline: {
-          width: 0.5,
-          color: outlineColor,
-        },
-      }),
-    },
-    {
-      value: 12,
-      symbol: new SimpleMarkerSymbol({
-        style: 'triangle',
-        size: 5,
-        color: colorsConservation[11], // the first two letters dictate transparency.
-        outline: {
-          width: 0.5,
-          color: outlineColor,
-        },
-      }),
-    },
-  ],
+  uniqueValueInfos: treeConservationUniqueValuesInfos,
 });
 
 export const treeConservationLayer = new FeatureLayer({
@@ -499,6 +369,7 @@ export const treeConservationLayer = new FeatureLayer({
   },
 
   title: 'Tree Conservation',
+  layerId: 2,
   renderer: treeConservationRenderer,
   popupTemplate: {
     title: '<h5>{Conservation}</h5>',
